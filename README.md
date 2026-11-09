@@ -1,558 +1,476 @@
+<h1 align="center">PastryShop</h1>
 
-<br>
-<br>
-<br>
-<div align="center">
-  <h1>Pastry Shop </h1> 
-</div>
-<br>
-<br>
-<br>
+**English** | [Srpski](README.sr.md)
 
-<div style="page-break-before: always;"></div>
+**PastryShop** is a desktop WPF application for running a bakery or pastry shop: sales through a POS screen, product and stock management, user accounts and reports. There are two roles, manager and cashier, and each one opens its own screen with its own functions after login. The rest of this document is a user guide.
 
-# **Uvod**  
-&nbsp;&nbsp;&nbsp;&nbsp;***PastryShop*** je desktop WPF aplikacija osmišljena da pojednostavi i unaprijedi svakodnevno poslovanje malih i srednjih pekara, poslastičarnica i srodnih objekata sa brzim prometom robe.  
-Cilj ovog korisničkog uputstva je da na jasan i praktičan način predstavi početna podešavanja, svakodnevne operacije, kao i napredne funkcije aplikacije, omogućavajući brzo uvođenje u rad i korištenje svih njenih prednosti.
+<p align="center">
+  <img src="images/17_blagajnik_pos.png" alt="blagajnik pos" width="290"/>
+  <img src="images/08_menadzer_proizvodi.png" alt="pregled proizvoda" width="290"/>
+  <img src="images/14_menadzer_zalihe.png" alt="zalihe proizvoda" width="290"/>
+</p>
+<p align="center"><em>Cashier POS screen · product overview · stock management</em></p>
 
-## **Pregled ključnih funkcionalnosti**  
-&nbsp;&nbsp;&nbsp;&nbsp;U nastavku su opisane osnovne funkcionalnosti aplikacije.
+## Key features
 
-**Upravljanje korisničkim nalozima**  
-&nbsp;&nbsp;&nbsp;&nbsp;Jasno definisane uloge i kontrole pristupa doprinose većoj sigurnosti i pouzdanosti rada aplikacije.
+- **User accounts and roles** – two roles (manager and cashier); the manager adds and edits accounts, changes roles, activates and deactivates accounts, and resets passwords.
+- **Products and stock** – browse, add and edit products (food, drinks, utensils), track quantities, supply batches and expiry dates.
+- **POS** – create orders, work with a cart, pay by cash, by card or pay later, and cancel orders that were already created.
+- **Reports and statistics** – panels and charts for sales and stock (manager) and for the logged-in cashier's work.
+- **Settings** – three themes (light, dark, blue), Serbian and English UI, user profile editing.
+- **Keyboard shortcuts** – for navigation and the most common actions.
 
-**Centralizovano upravljanje proizvodima i zalihama**  
-&nbsp;&nbsp;&nbsp;&nbsp;Sistem podržava upravljanje proizvodima i zalihama, omogućavajući pregled, dodavanje i uređivanje artikala, praćenje količina, serija nabavki i rokova trajanja, čime se olakšava planiranje i kontrola poslovanja.
+---
 
-**Brz i intuitivan POS**  
-&nbsp;&nbsp;&nbsp;&nbsp;Jednostavno kreiranje porudžbina, rad sa artiklima u korpi i brza naplata gotovinom, karticom ili odloženo plaćanje, uz mogućnost poništavanja ranije kreiranih porudžbina.
+## Roles and login
 
-**Personalizacija**  
-&nbsp;&nbsp;&nbsp;&nbsp;Sistem podržava više jezika, prilagodljive vizuelne teme i izmjenu profila korisnika, omogućavajući bolje podešavanje interfejsa prema individualnim potrebama.
+### Roles
 
-**Izvještaji i statistika**  
-&nbsp;&nbsp;&nbsp;&nbsp;Omogućen je brz i pregledan uvid u prodaju, zalihe i ključne poslovne pokazatelje kroz intuitivne panele i grafike.
+The application has two user roles.
 
-# **Uloge i autentifikacija**  
-&nbsp;&nbsp;&nbsp;&nbsp;*PastryShop* unapređuje efikasnost i sigurnost poslovanja kroz jasno definisane korisničke uloge. Ovakav pristup omogućava preciznu podjelu odgovornosti i sprječava neovlašćen pristup važnim funkcijama sistema, čime se smanjuje rizik od grešaka i mogućih zloupotreba.
+**Manager**
+- Has administrative control over the whole system.
+- Creates and manages user accounts (adding new accounts, deactivating existing ones, resetting passwords).
+- Oversees products and stock.
+- Has access to reports and statistics.
 
-## **Uloge u sistemu**  
-&nbsp;&nbsp;&nbsp;&nbsp;Aplikacija razlikuje dvije osnovne uloge korisnika:
+**Cashier**
+- Uses the POS interface at the point of sale.
+- Creates and pays orders and views the day's transactions.
 
-**Menadžer**
--   Posjeduje administrativnu kontrolu nad cijelim sistemom.
--   Odgovoran je za kreiranje i upravljanje nalozima korisnika (dodavanje novih i deaktivacija postojećih naloga, resetovanje lozinki).
--   Vrši nadzor nad proizvodima i zalihama.
--   Ima pristup izvještajima i statistikama radi praćenja i analize poslovanja.
+### Login
 
-**Blagajnik**
--   Koristi POS interfejs prilagođen za brz i efikasan rad na prodajnom mjestu.
--   Njegove primarne funkcije obuhvataju kreiranje porudžbina, naplatu i pregled dnevnih transakcija.
+The manager creates accounts for employees and assigns each a role and an initial password. Employees are advised to change the password on first login. On startup the login screen opens with a ***username*** and a ***password*** field. Both are required, only letters and digits are allowed, and there is a minimum and maximum length. *Tab* moves between fields.
 
-## **Proces prijave i autentifikacija**  
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer ima mogućnost da kreira korisničke naloge za zaposlene, dodjeljuje im odgovarajuće uloge i generiše početnu lozinku.  
-Zaposleni dobijaju lozinku i preporuka je da je, radi sigurnosti, promijene pri prvoj prijavi. Korisnici se prijavljuju putem svojih jedinstvenih
-kredencijala. Po pokretanju aplikacije otvara se ekran za prijavu sa poljima za unos ***korisničkog imena*** i ***lozinke***. Navigacija između polja omogućena je tasterom *Tab*. Polja su obavezna, a dozvoljen je jedino unos slova i cifara. Definisan je minimalni i maksimalni broj unesenih karaktera.
+<p align="center">
+  <img src="images/01_prijava.png" alt="Dijagram" height="250" width="350"/>
+</p>
 
-<img src="images/01_prijava.png" alt="Dijagram" height="250" width="350" align="left" style="margin-right: 15px;"/>
+The language can be changed on this screen; *Ctrl + L* opens the language drop-down. The selected language applies to the login screen only.
 
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Korisnicima je na raspolaganju ***opcija promjene jezika***, pri čemu se odabrani jezik primjenjuje samo na stranicu za prijavu. Kao prečica može da se koristi kombinacija tastera *Ctrl + L* kojom se otvara padajući meni za izbor jezika.  
-&nbsp;&nbsp;&nbsp;&nbsp;Nakon klika na dugme ***Prijava*** *(Login)* ili pritiskom na taster *Enter*, sistem provjerava kredencijale i u slučaju uspjeha: evidentira vrijeme prijave i preusmjerava korisnika na početni ekran u skladu s njegovom ulogom.  
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžeri se preusmjeravaju na kontrolnu tablu za rad sa korisničkim nalozima. Blagajnici pristupaju POS ekranu koji je optimizovan za prodaju i naplatu. Ovakav pristup omogućava da svaki korisnik radi u okruženju precizno prilagođenom njegovim zadacima.  
-<br clear="left"/> 
-&nbsp;&nbsp;&nbsp;&nbsp;U slučaju da prijava nije uspješna, pojavljuje se dijalog upozorenja sa informacijom o razlogu neuspjele operacije.  
-Razlozi mogu biti: netačno korisničko ime ili lozinka; nalog nije aktivan; nekorektne vrijednosti polja i tada su uz data polja prikazane odgovarajuće poruke radi lakše korekcije pogrešnih unosa.
-&nbsp;&nbsp;&nbsp;&nbsp;Na ekranu se nalazi i dugme ***„Otkaži"*** *(Cancel)* za izlaz iz aplikacije. Za ovu funkcionalnost omogućena je prečica *Escape (Esc)*.  
-<div style="page-break-before: always;"></div>
+After clicking ***Login*** or pressing *Enter*, the app checks the credentials. If they are valid, it records the login time and opens the start screen for the user's role: managers land on the user account screen, cashiers on the POS screen.
 
-# **Menadžer**  
+If login fails, a warning dialog shows the reason: wrong username or password, the account is inactive, or invalid field values (in which case messages are also shown next to the fields).
 
-&nbsp;&nbsp;&nbsp;&nbsp;Uloga menadžera je da osigura stabilnost i urednost poslovanja, kako bi svakodnevni rad u pekarskom ili poslastičarskom objektu tekao nesmetano.
+The ***Cancel*** button exits the application; the shortcut is *Escape (Esc)*.
 
-**Glavne odgovornosti menadžera su:**
--   upravljanje korisnicima,
--   upravljanje proizvodima,
--   kontrola zaliha,
--   kreiranje izvještaja.
+---
 
-## **Prijava i pristup**  
-&nbsp;&nbsp;&nbsp;&nbsp;Po uspješnoj prijavi na sistem prikazuje se početni ekran za menadžere.  
+## Manager
 
-&nbsp;&nbsp;&nbsp;&nbsp;Sa lijeve strane ekrana nalazi se vertikalni ***navigacioni meni*** sa ikonama i nazivima opcija. Ovaj meni omogućava brz pristup ključnim modulima i funkcijama sistema, a svaka opcija ima i odgovarajuću tastaturnu prečicu za dodatnu efikasnost:  
--   **Zaposleni** - pregled i upravljanje korisničkim nalozima (*Ctrl + U*).
--   **Proizvodi** - katalogizacija i uređivanje proizvoda (*Ctrl + P*).
--   **Izvještaj** - pregled i generisanje prodajnih i inventarskih izvještaja (*Ctrl + R*).
--   **Postavke** - podešavanje jezika i teme aplikacije (*Ctrl + S*).
--   **Profil** - uređivanje profila korisnika (*Ctrl + M*).
--   **Odjava** - izlazak iz aplikacije (*Esc*).
+The manager's main responsibilities:
+- user management,
+- product management,
+- stock control,
+- reports.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Sa desne strane ekrana nalazi se glavni dio, u kojem se prikazuje ***sadržaj izabranog modula***. Ovdje menadžer unosi podatke i ima pregled svih relevantnih informacija o poslovanju, kao što su evidencija zaposlenih, stanje zaliha, podaci o proizvodima i izvještaji.
+### Login and navigation
 
-## **Upravljanje korisnicima**  
+After login the manager start screen is shown.
 
-### **Pregled korisnika**  
-<img src="images/03_menadzer_korisnici.png" alt="pregled korisnika" height="250" width="350" align="right" style="margin-left: 15px;"/>
+A vertical ***navigation menu*** with icons and labels is on the left. Each item has a keyboard shortcut:
 
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer ima pristup svim korisnicima aplikacije, što omogućava jednostavno praćenje i uređivanje njihovih naloga.  
-Dostupna je tabela koja prikazuje ***osnovne informacije*** o svakom korisniku: *ID, korisničko ime, tip korisnika*, kao i dostupne akcije kroz ikone za *detaljan pregled naloga, promjenu statusa, promjenu lozinke* itd.
+- **Employees** – view and manage user accounts (*Ctrl + U*).
+- **Products** – product catalogue and editing (*Ctrl + P*).
+- **Reports** – sales and inventory reports (*Ctrl + R*).
+- **Settings** – language and theme (*Ctrl + S*).
+- **Profile** – edit the user's profile (*Ctrl + M*).
+- **Logout** – log out of the application (*Esc*).
 
-&nbsp;&nbsp;&nbsp;&nbsp;***Polje za pretragu*** omogućava brzo pronalaženje korisnika (*Tab* ili *F3* prebacuje fokus na polje), dok padajući meni omogućava ***filtriranje po statusu*** (*Ctrl + F*).  
+The main area on the right shows the ***content of the selected module***: employees, stock levels, product data and reports.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Korisnici koji imaju status *„neaktivan"* jasno su istaknuti u prikazu.
-<br clear="right"/> 
+### User management
 
-### **Dodavanje korisnika**  
-&nbsp;&nbsp;&nbsp;&nbsp;Dugme ***Dodaj*** u gornjem desnom uglu glavnog ekrana otvara prozor sa formularom za kreiranje novog korisničkog naloga (*Ctrl + N*).  
-&nbsp;&nbsp;&nbsp;&nbsp;Formular sadrži *osnovna, zajednička polja* koja se popunjavaju za sve korisnike, dok se *specifična polja* pojavljuju u zavisnosti od izabranog tipa korisnika.
+#### User list
+
+<p align="center">
+  <img src="images/03_menadzer_korisnici.png" alt="pregled korisnika" height="250" width="350"/>
+</p>
+
+The manager can see all users. The table shows *ID, username* and *user type*, with icons for *account details, status change, password change* and other actions.
+
+A ***search field*** finds users quickly (*Tab* or *F3* moves focus to it), and a drop-down ***filters by status*** (*Ctrl + F*). Users with the status *inactive* are highlighted.
+
+#### Adding a user
+
+The ***Add*** button in the top right corner of the main screen (*Ctrl + N*) opens a form for a new account. The form has *common fields* for all users, and *type-specific fields* that appear depending on the selected user type.
 
 <p align="center">
   <img src="images/04_menadzer_korisnici.png" alt="dodaj korisnika" height="280" width="370"/>
 </p>
-<br clear="all"/>
 
-**Zajednička polja**
+**Common fields**
 
--   *Tip korisnika* - padajući meni gdje je neophodno odabrati: *Manager* ili *Cashier*,
--   *Korisničko ime* - obavezno tekstualno polje koje provjerava jedinstvenost imena, dozvoljava samo važeće znakove uz minimalnu i maksimalnu dužinu,
--   *Lozinka* - obavezno tekstualno polje (maskirano) sa sličnim ograničenjima kao polje za unos korisničkog imena,
--   *Ime* - tekstualno polje koje dozvoljava jedino unos slova, brojeva i razmaka,
--   *Prezime* - ista funkcionalnost i ograničenje kao polje za unos imena,
--   *Broj telefona* - tekstualno polje koje prihvata samo ispravan format telefonskog broja,
--   *Adresa* - slobodno tekstualno polje za unos adrese,
--   *Plata* - obavezno numeričko polje koje ne može biti negativno,
--   *Putanja do slike (Izaberi sliku)* - dugme za odabir fajla; nakon odabira prikazuje se preview slike. Dozvoljeni formati: *.jpg, jpeg, .png*.
+- *User type* – drop-down, required: *Manager* or *Cashier*,
+- *Username* – required text field; must be unique, only valid characters are accepted, with minimum and maximum length,
+- *Password* – required masked field with similar constraints as the username,
+- *First name* – text field that accepts only letters, digits and spaces,
+- *Last name* – same as first name,
+- *Phone number* – text field that accepts only a valid phone number format,
+- *Address* – free text,
+- *Salary* – required numeric field, cannot be negative,
+- *Image path (Choose image)* – file picker button; a preview is shown after selection. Allowed formats: *.jpg, .jpeg, .png*.
 
-**Specijalna polja - Menadžer**  
+**Manager-only fields** (shown only when Manager is selected)
 
-&nbsp;&nbsp;&nbsp;&nbsp;Prikazuju se samo kada je izabran menadžer:
+- *Department* – text field that accepts only letters, digits and spaces.
 
--   *Odjeljenje* - tekstualno polje koje dozvoljava samo unos slova, brojeva i razmake.
-<div style="page-break-before: always;"></div>
+**Cashier-only fields** (shown only when Cashier is selected)
 
-**Specijalna polja - Blagajnik**  
+- *Register ID* – numeric field, integers only,
+- *Shift start* – calendar for picking date and time; cannot be in the past,
+- *Shift end* – date and time; must be after the shift start, and the shift must last at least one hour.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Prikazuju se samo kada je izabran blagajnik:
+Input is validated before saving; if everything is valid, the new account is saved. Otherwise a warning dialog is shown, and error messages also appear next to the invalid fields.
 
--   *ID kase* - numeričko polje koje prihvata samo cijele brojeve,
--   *Početak smjene* - omogućava prikaz kalendara za odabir datum i vremena; ne može biti u prošlosti,
--   *Kraj smjene* - odabrani datum + vrijeme; mora biti poslije početka smjene i trajanje smjene mora biti najmanje jedan sat.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Provjerava se ispravnost unesenih podataka i ukoliko su svi podaci validni, sprema novi korisnički nalog.  
-U suprotnom se prikazuje odgovarajući dijalog upozorenja. Takođe, poruke o greškama prikazuju se odmah pored nevalidnih polja radi lakše korekcije.
-
-### **Prikaz detalja korisnika**  
-
-<img src="images/05_menadzer_korisnici.png" alt="prikaz detalja korisnika" height="250" width="350" align="right" style="margin-left: 15px;"/>
-
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Za selektovanog korisnika, klikom na odgovarajuću ikonicu otvara se prozor sa ***detaljnim informacijama*** o tom korisniku.  
-Prozor prikazuje osnovne podatke, uključujući profilnu sliku, tip korisnika, korisničko ime, ime i prezime, broj telefona i adresu, datum zaposlenja, platu i posljednju prijavu u sistem, kao i dodatne podatke prema tipu korisnika: odjeljenje za menadžera ili ID kase i smjene za blagajnika.
-<br clear="right"/> 
-
-### **Uređivanje korisnika**  
-&nbsp;&nbsp;&nbsp;&nbsp;Klikom na odgovarajuću ikonicu za odabranog korisnika otvara se prozor za ***uređivanje osnovnih podataka*** vezanih za poslovanje. U ovom prozoru moguće je mijenjati *platu* zaposlenog, a u zavisnosti od tipa korisnika, dozvoljena je izmjena *odjeljenja* za menadžera ili *ID kase, početka i kraja smjene* za blagajnika.  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Primjenjuju se ista pravila i ograničenja kao kod unosa novog korisnika. Polja vrše automatsku provjeru unosa i onemogućavaju spremanje dok vrijednosti nisu ispravne. Tek nakon unosa validnih podataka izmjene se mogu potvrditi klikom na dugme ili pritiskom na *Enter*.
-
-### **Promjena tipa korisnika (Menadžer ↔ Blagajnik)**  
-Menadžer može ***promijeniti ulogu*** odabranog korisnika klikom na odgovarajuću ikonicu. Prije izvršenja promjene, sistem traži potvrdu od menadžera. Ako se promjena potvrdi, uloga se ažurira, a sistem po potrebi popunjava ili resetuje polja specifična za novu ulogu.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Promjena vlastite uloge, kao ni uloge neaktivnog naloga, nije dozvoljena. U oba slučaja prikazuje se dijalog sa odgovarajućim upozorenjem.
-
-### **Aktiviranje / deaktiviranje korisnika**  
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer može privremeno ***onemogućiti*** ili ponovo ***omogućiti*** pristup korisnikovom nalogu bez brisanja podataka. Prije promjene statusa sistem traži potvrdu kako bi se spriječile neželjene greške.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Neaktivni korisnik više ne može pristupiti sistemu i prilikom pokušaja prijave dobija odgovarajuću poruku.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Nad nalogom deaktiviranog korisnika je takođe onemogućeno izvođenje određenih akcija od strane menadžera, poput resetovanja lozinke ili promjene uloge, sve dok nalog ne bude ponovo aktiviran.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Nije dozvoljeno deaktivirati vlastiti nalog. Takav pokušaj prikazuje dijalog sa jasno navedenim upozorenjem da je data operacija zabranjena.
-
-### **Resetovanje lozinke**  
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer može ***generisati privremenu lozinku*** za odabranog korisnika. Nakon uspješnog resetovanja, prikazuje se poruka sa privremenom lozinkom koju menadžer može proslijediti korisniku.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Prilikom sljedeće prijave, korisnik unosi privremenu lozinku, a zatim je obavezan da postavi novu, sopstvenu lozinku za buduće prijave.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Nije dozvoljeno resetovati vlastitu lozinku niti lozinku neaktivnog naloga.
-
-## **Upravljanje proizvodima**  
-
-### **Prikaz proizvoda**  
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer ima mogućnost pregleda svih proizvoda koji čine asortiman poslovnog objekta, uz jasno organizovan prikaz za lakše upravljanje. U pregledu se prikazuju ***osnovne informacije*** o svakom artiklu: *ID, naziv, tip proizvoda* (*Hrana, Piće, Pribor*), *količina na stanju*, kao i dostupne akcije kroz ikonice za *detaljan pregled*, *uređivanje podataka* o odabranom proizvodu, *promjenu statusa* ili otvaranje prozora za *upravljanje zalihama*.
-
-&nbsp;&nbsp;&nbsp;&nbsp;***Polje za pretragu*** omogućava brzo pronalaženje artikala (*Tab* ili *F3* prebacuju fokus na pretragu). Za ***filtriranje*** se koriste padajući meni za odabir ***po tipu proizvoda*** (*Ctrl + F*) i ***meni Atributi*** (*Ctrl + L*), sa opcijama poput *Sniženo*, *Istaknuto* i *Dostupno*.
-<p align="center">
-  <img src="images/08_menadzer_proizvodi.png" alt="pregled proizvoda" height="300" width="400"/>
-</p>
-<br clear="all"/> 
-<div style="page-break-before: always;"></div>
-
-### **Dodavanje novih proizvoda**  
-&nbsp;&nbsp;&nbsp;&nbsp;Dugme ***Dodaj*** u gornjem desnom uglu glavnog ekrana otvara prozor sa formularom za kreiranje novog proizvoda (*Ctrl + N*).  
-Forma obuhvata osnovna polja koja se popunjavaju za sve proizvode, dok se dodatna, specifična polja prikazuju u zavisnosti od odabranog tipa (Hrana, Piće ili Pribor).  
-
-<img src="images/10_menadzer_proizvodi.png" alt="dodaj proizvod" height="250" width="350" align="right" style="margin-left: 15px;"/>
-
-<!--  -->
-
-**Zajednička polja**
-
--   *Tip proizvoda* - padajući meni sa obaveznim izborom: *Hrana*, *Piće* ili *Pribor*,
--   *Naziv* - tekstualno polje za unos imena proizvoda uz provjeru minimalnog i maksimalnog broja karaktera,
--   *Opis* - prošireno tekstualno polje za detaljan opis,
--   *Cijena* - numeričko polje koje mora biti popunjeno i ne smije sadržati negativnu vrijednost,
--   *Slika proizvoda* - dugme za odabir fotografije; nakon izbora prikazuje se pregled slike. Podržani formati: *.jpg, .jpeg, .png*.
-<br clear="right"/>
-
-**Polja za tip Hrana**
-
-&nbsp;&nbsp;&nbsp;&nbsp;Prikazuju se samo kada je odabran tip *Hrana*:
-
--   *Vrsta hrane* - padajući meni sa izborom kategorije (*torte, slatkiši, peciva, pekarski proizvodi*),
--   *Težina* - numeričko polje (izražava se u gramima),
--   *Kalorije* - numeričko polje koje očekuje cijeli broj,
--   *Lako kvarljivo* - izborno polje (checkbox) koje označava da proizvod zahtijeva prioritet u zalihama.
-
-**Polja za tip Piće**
-
-&nbsp;&nbsp;&nbsp;&nbsp;Prikazuju se samo kada je odabran tip *Piće*:
-
--   **Zapremina* -numeričko polje (u mililitrima), vrijednost ne može biti negativna,
--   **Alkoholno* - izborno polje (checkbox) koje označava da li proizvod sadrži alkohol.
-
-**Polja za tip *Pribor***
-
-&nbsp;&nbsp;&nbsp;&nbsp;Prikazuju se samo kada je odabran tip *Pribor*:
-
--   *Materijal* - obavezno tekstualno polje (npr. plastika, metal),
--   *Dimenzije* - tekstualno polje za unos u formatu "*broj*" ili "*broj × broj*", pri čemu brojevi mogu biti cijeli ili decimalni, a razmak je dozvoljen,
--   *Višekratno* - izborno polje (checkbox) koje označava mogućnost ponovne upotrebe.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Dugme ***Dodaj*** pokreće provjeru svih vidljivih polja. Ako su podaci ispravni, novi proizvod se sprema u bazu i prikazuje se informativna poruka o uspjehu. Ako postoje greške, korisnik dobija upozorenje, a neispravna polja bivaju jasno označena.  
-&nbsp;&nbsp;&nbsp;&nbsp;Dugme ***Otkaži*** zatvara formu bez čuvanja promjena.
-
-### **Prikaz detalja proizvoda**  
-
-<img src="images/11_menadzer_proizvodi.png" alt="detalji proizvoda" height="250" width="350" align="right" style="margin-left: 15px;"/>
-
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer ima mogućnost detaljnog ***pregleda odabranog proizvoda***, sa svim relevantnim informacijama prikazanim na jednom mjestu. Pored osnovnih podataka (*naziv, tip, opis, cijena* i *popust*), prikazuju se i *datumi kreiranja* i *posljednje izmjene*, kao i vizuelni prikaz *slike proizvoda* radi lakše identifikacije.  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Prozor sadrži oznake (chipove) koje jasno ističu status proizvoda: *dostupan, nedostupan* ili *istaknut*.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Specifični atributi prikazuju se zavisno od tipa proizvoda: za hranu (*vrsta hrane, težina, kalorije, kvarljivost*), za piće (*zapremina, alkoholno/bezalkoholno*), a za pribor (*materijal, dimenzije, višekratna upotreba*).
-<br clear="right"/> 
-
-### **Uređivanje osnovnih podataka proizvoda**  
-
-<img src="images/12_menadzer_proizvodi.png" alt="uredi podatke proizvoda" height="250" width="350" align="right" style="margin-left: 15px;"/>
-
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Klikom na odgovarajuću ikonicu za odabrani proizvod otvara se modalni prozor za ***izmjenu*** njegovih ***osnovnih podataka***. U ovom prozoru menadžer može mijenjati *cijenu proizvoda*, dodavati ili uklanjati *popust*, te označiti proizvod kao *istaknuti*. Polja prikazuju postojeće vrijednosti i omogućavaju direktnu izmjenu.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Primjenjuju se ista pravila i ograničenja kao kod dodavanja novog proizvoda. Polja vrše automatsku provjeru unosa i onemogućavaju
-spremanje dok vrijednosti nisu ispravne (npr. cijena i popust moraju biti numerički podaci, ne smiju biti negativni). Tek nakon unosa validnih podataka izmjene se mogu potvrditi klikom na dugme ***Sačuvaj*** ili pritiskom na *Enter*, dok dugme ***Otkaži*** zatvara prozor bez promjena.
-<br clear="right"/>
-
-### **Uređivanje detalja proizvoda**  
-
-<img src="images/13_menadzer_proizvodi.png" alt="uredi profil proizvoda" height="250" width="350" align="right" style="margin-left: 15px;"/>
-
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Dostupna je opcija za ***uređivanje profila proizvoda***. Potrebno je odabrati proizvod i kliknuti na odgovarajuću ikonicu.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Omogućeno je mijenjanje *naziva, opisa, slike*, kao i specifičnih atributa u zavisnosti od tipa proizvoda.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Sistem provjerava tačnost unosa i ne dozvoljava čuvanje ako podaci nisu validni. Kada su sve vrijednosti ispravne, izmjene se mogu potvrditi klikom na dugme ***Sačuvaj*** ili pritiskom na *Enter*.  
-<br clear="right"/> 
-
-### **Aktiviranje / deaktiviranje proizvoda**  
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer može privremeno ***sakriti*** ili ponovo ***prikazati*** proizvod u aktivnoj listi bez brisanja podataka. Prije promjene statusa sistem traži potvrdu radi sprječavanja grešaka.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Neaktivni proizvod se ne prikazuje u standardnom pregledu i nije dostupan za dodavanje u prodajne transakcije dok se ponovo ne aktivira. Neke radnje, poput uređivanja cijene, popusta ili istaknutog statusa, takođe su onemogućene dok proizvod nije aktivan.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Deaktiviranje već arhiviranog proizvoda nije dozvoljeno; u tom slučaju pojavljuje se dijalog sa upozorenjem.
-
-## **Upravljanje zalihama**  
-&nbsp;&nbsp;&nbsp;&nbsp;Klikom na odgovarajuću ikonicu pored željenog proizvoda otvara se prozor za ***upravljanje zalihama***, u kojem menadžer može detaljno pratiti i ažurirati stanje zaliha. Prikazuju se *količine, serije nabavki* i *rok trajanja* proizvoda, uz automatske indikatore koji jasno ističu kritične stavke.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Na ekranu je istaknuto *ime proizvoda* čije se zalihe uređuju, kao i *ukupna količina* trenutno dostupnih stavki.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Centralni dio ekrana prikazuje sve serije zaliha za izabrani proizvod, uključujući *ID serije, količinu, datum dodavanja* i *rok trajanja*.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Menadžer može potvrtiti izvršene promjene koristeći dugme ***Sačuvaj***, poništiti izmjene sa dugmetom ***Odbaci*** ili ukloniti selektovanu stavku klikom na dugme ***Obriši***.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Dostupan je i klizač koji omogućava ***filtriranje*** serija zaliha prema njihovom statusu (*aktivno / neaktivno*).
-&nbsp;&nbsp;&nbsp;&nbsp;Desni panel prikazuje ***detalje*** izabrane stavke, uključujući *količinu, datum isteka, broj dana za upozorenje* i *datum dodavanja*. Polja imaju automatsku validaciju:
-
--   *Količina:* - obavezno polje, mora biti cio broj veći od nule,
--   *Datum isteka:* - opciono; ako je unet, mora biti najmanje 1 dan u budućnosti,
--   *Dani upozorenja:* - opciono; cio broj, ne može biti negativan,
--   *Datum dodavanja:* - prikazuje datum i vrijeme kada je stavka dodata,
--   *Aktivno:* - čekboks za aktivaciju ili deaktivaciju stavke.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Ispod panela nalazi se dugme ***Dodaj zalihe*** za kreiranje nove stavke, kao i dugme ***Zatvori*** koje zatvara ekran bez čuvanja promjena.  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Ako datum isteka postoji i nalazimo se unutar broja dana za upozorenje, data stavka se automatski označava na poseban način (drugačija boja stavke) što omogućava menadžeru prepoznavanje kritičnih zaliha i pravovremenu reakciju.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Ovaj interfejs pruža sveobuhvatnu kontrolu nad zalihama proizvoda, omogućavajući precizno praćenje svake serije nabavke. Daje detaljan uvid u status svih stavki kako aktivnih tako i svih neaktivnih stavki bilo da im je promjenjen status, da je istekao rok ili da su jednostavno
-potrošene. Na taj način menadzer ima mogućnost preciznog vođenje evidencije i analize o svim zalihama proizvoda.  
+#### User details
 
 <p align="center">
-  <img src="images/14_menadzer_zalihe.png" alt="zalihe proizvoda" height="280" width="380"/>
+  <img src="images/05_menadzer_korisnici.png" alt="prikaz detalja korisnika" height="250" width="350"/>
 </p>
-<br clear="all"/> 
 
-## **Statiskika i izvještaji kod menadžera**  
+Clicking the details icon for a selected user opens a window with ***detailed information***: profile picture, user type, username, first and last name, phone number and address, hire date, salary and last login, plus data specific to the type (department for a manager, register ID and shift for a cashier).
 
-### **Proizvodi**  
-&nbsp;&nbsp;&nbsp;&nbsp;Ova sekcija menadžeru omogućava brz i pregledan uvid u ključne poslovne pokazatelje kroz intuitivne panele i grafičke prikaze.
+#### Editing a user
 
-&nbsp;&nbsp;&nbsp;&nbsp;Na ekranu se nalaze polja za odabir datuma ***Od*** i ***Do***, kao i dugme ***Statistika*** za generisanje podataka za željeni period. 
+The edit icon opens a window for ***editing business-related data***. The manager can change the *salary* and, depending on the user type, the *department* (manager) or the *register ID, shift start and shift end* (cashier).
 
-&nbsp;&nbsp;&nbsp;&nbsp;Polja za datume su opciona: prazno polje znači da nema vremenskog ograničenja za taj kraj perioda, ako je unesen samo datum *Od*, prikazuju se podaci od tog datuma pa nadalje, ako je unesen samo datum *Do*, prikazuju se podaci zaključno s tim datumom.
+The same rules apply as when adding a user. Fields validate input and saving is disabled until the values are valid. Changes are confirmed with the button or with *Enter*.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Pritiskom na dugme ***Statistika***, sistem prvo provjerava ispravnost unesenih datuma. Ako su validni, podaci se učitavaju i ažuriraju se svi paneli, grafikoni i lista najprodavanijih proizvoda. U slučaju neispravnog unosa (npr. datum u budućnosti ili pogrešan interval), polja se označavaju greškom i pojavljuje se dijalog upozorenja. Pretraga se neće izvršiti sve dok se greške ne isprave.
+#### Changing user type (Manager ↔ Cashier)
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ispod trake za filtriranje nalaze se informativni paneli sa pregledom najvažnijih metrika:
+The manager can ***change the role*** of a selected user with the corresponding icon. The system asks for confirmation first. If confirmed, the role is updated, and the fields specific to the new role are filled in or reset as needed.
 
--   ***Narudžbe*** - prikaz ukupnog broja narudžbi, dodatno grupisan po statusima: *Završene, Otkazane* i *Na čekanju*.
--   ***Artikli*** - pregled ukupnog broja artikala, razvrstanih po kategorijama: *Hrana, Piće* i *Pribor*.
--   ***Prihod*** - ukupan prihod ostvaren u odabranom periodu.
+Changing your own role, or the role of an inactive account, is not allowed; in both cases a warning dialog is shown.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Dostupni su i grafikoni koji olakšavaju praćenje kretanja:  
-*Linijski grafikon:* prikazuje tendenciju prodaje artikala i broja narudžbi na nedeljnom nivou;  
-*Stubičasti grafikon:* prikazuje kretanje prihoda u istom periodu.
+#### Activating / deactivating users
 
-&nbsp;&nbsp;&nbsp;&nbsp;Na ekranu se takođe nalazi lista ***najprodavanijih proizvoda*** sa sličicama i nazivima, sortirana po broju prodatih artikala.
-<div style="page-break-before: always;"></div>
+The manager can temporarily ***disable*** or re-***enable*** an account without deleting any data. The system asks for confirmation before the status changes.
 
-### **Zalihe**  
-&nbsp;&nbsp;&nbsp;&nbsp;Sekcija *Zalihe* omogućava menadžeru potpuni pregled stanja proizvoda u skladištu i svih promjena koje su izvršene.
+An inactive user cannot log in and gets a message when trying. While an account is inactive, some manager actions on it are disabled, such as password reset or role change.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Na početku korisnik: bira proizvod, definiše vremenski period putem polja *Od* i *Do*, pokreće generisanje izvještaja klikom na dugme ***Izvještaj***.
+Deactivating your own account is not allowed; the attempt shows a dialog stating that the operation is forbidden.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Sistem automatski provjerava validnost unesenih podataka: datum ne smije biti u budućnosti, krajnji datum mora biti nakon početnog, izbor proizvoda je obavezan za detaljne izvještaje.
+#### Password reset
 
-&nbsp;&nbsp;&nbsp;&nbsp;Nepravilno uneseni datumi ili neizabrani proizvod onemogućavaju generisanje izvještaja i prikazuju vizuelni indikator greške pored
-polja.
+The manager can ***generate a temporary password*** for a selected user. After a successful reset, a message shows the temporary password, which the manager can pass on to the user.
 
-**Tabovi:**
+On the next login the user enters the temporary password and is then required to set a new password of their own.
 
--   ***Zalihe*** - prikazuje stavke kojima ističe rok trajanja, nezavisno od izbora proizvoda i perioda. Tabela sadrži *ID zaliha, ID proizvoda, naziv proizvoda, količinu, datum isteka* i *broj dana do upozorenja*,
--   ***Transakcije*** - prikazuje sve promjene stanja zaliha za odabrani proizvod i period. Evidentiraju se *ID transakcije, datum i vrijeme, tip transakcije* (*prijem, prodaja, korekcija*), *promjena količine, broj narudžbine* i *ID korisnika*,
--   ***Izmjene*** - detaljan pregled svih promjena u zalihama, uključujući *datum, tip izmjene, prethodnu i novu vrijednost*, te *ID korisnika*,
--   ***Sažetak*** - ukupni pregled za odabrani proizvod i period: *količina na skladištu, dodate i prodate količine*, te *ukupni broj izmjena.
+Resetting your own password, or the password of an inactive account, is not allowed.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Tabele podržavaju sortiranje, a prazni prikazi uvijek obavještavaju korisnika da nema podataka za trenutne kriterijume.
+### Product management
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ovakav tok, od izbora proizvoda i datuma, preko generisanja izvještaja, do preglednog prikaza zaliha, transakcija, izmjena i sažetka, omogućava menadžeru efikasno praćenje stanja skladišta i donošenje informisanih odluka o poslovanju objekta koji koristi PastryShop aplikaciju.
+#### Product list
+
+The manager can browse all products in the shop's assortment. The list shows *ID, name, product type* (*Food, Drink, Utensils*) and *quantity in stock*, with icons for *details*, *editing product data*, *status change* and opening the *stock management* window.
+
+A ***search field*** finds products quickly (*Tab* or *F3* moves focus to it). ***Filtering*** uses a drop-down ***by product type*** (*Ctrl + F*) and an ***Attributes menu*** (*Ctrl + L*), including the options *On sale*, *Featured* and *Available*.
+
+#### Adding a product
+
+The ***Add*** button in the top right corner of the main screen (*Ctrl + N*) opens a form for a new product. The form has basic fields for all products, and additional fields depending on the type (Food, Drink or Utensils).
+
+<p align="center">
+  <img src="images/10_menadzer_proizvodi.png" alt="dodaj proizvod" height="250" width="350"/>
+</p>
+
+**Common fields**
+
+- *Product type* – drop-down, required: *Food*, *Drink* or *Utensils*,
+- *Name* – text field with minimum and maximum length,
+- *Description* – multi-line text field,
+- *Price* – numeric field; required and not negative,
+- *Product image* – photo picker; a preview is shown after selection. Supported formats: *.jpg, .jpeg, .png*.
+
+**Food fields**
+
+- *Food category* – drop-down (*cakes, sweets, pastries, bakery products*),
+- *Weight* – numeric field (in grams),
+- *Calories* – numeric field that expects an integer,
+- *Perishable* – checkbox marking the product as perishable.
+
+**Drink fields**
+
+- *Volume* – numeric field (in millilitres), cannot be negative,
+- *Alcoholic* – checkbox indicating whether the product contains alcohol.
+
+**Utensils fields**
+
+- *Material* – required text field (e.g. plastic, metal),
+- *Dimensions* – text field in the format "*number*" or "*number × number*"; numbers can be integers or decimals, and spaces are allowed,
+- *Reusable* – checkbox indicating whether the item can be reused.
+
+The ***Add*** button validates all visible fields. If the data is valid, the product is saved to the database and a success message is shown. If there are errors, the user gets a warning and the invalid fields are marked. ***Cancel*** closes the form without saving.
+
+#### Product details
+
+<p align="center">
+  <img src="images/11_menadzer_proizvodi.png" alt="detalji proizvoda" height="250" width="350"/>
+</p>
+
+The details window shows the *name, type, description, price* and *discount*, the *creation* and *last modification dates*, and the *product image*. Chips show the product status: *available, unavailable* or *featured*.
+
+Type-specific attributes depend on the type: for food (*food category, weight, calories, perishable*), for drinks (*volume, alcoholic or non-alcoholic*), for utensils (*material, dimensions, reusable*).
+
+#### Editing basic product data
+
+<p align="center">
+  <img src="images/12_menadzer_proizvodi.png" alt="uredi podatke proizvoda" height="250" width="350"/>
+</p>
+
+The corresponding icon opens a modal window for editing the ***basic data***. The manager can change the *price*, add or remove a *discount*, and mark the product as *featured*. The fields show the current values.
+
+The same rules apply as when adding a product; saving is disabled until the values are valid (e.g. price and discount must be numeric and not negative). Changes are confirmed with the ***Save*** button or *Enter*, and ***Cancel*** closes the window without changes.
+
+#### Editing product details
+
+<p align="center">
+  <img src="images/13_menadzer_proizvodi.png" alt="uredi profil proizvoda" height="250" width="350"/>
+</p>
+
+Select a product and click the corresponding icon to ***edit the product profile***. The *name, description, image* and the type-specific attributes can be changed.
+
+The system validates the input and does not allow saving invalid data. Changes are confirmed with the ***Save*** button or *Enter*.
+
+#### Activating / deactivating products
+
+The manager can temporarily ***hide*** or re-***show*** a product in the active list without deleting data. The system asks for confirmation before the status changes.
+
+An inactive product is not shown in the standard view and cannot be added to sales transactions until it is activated again. Some actions, such as editing the price, discount or featured status, are also disabled while the product is inactive.
+
+Deactivating a product that is already inactive is not allowed; a warning dialog is shown.
+
+### Stock management
+
+The icon next to a product opens the ***stock management*** window, where the manager tracks and updates stock. It shows *quantities, supply batches* and *expiry dates*, and critical items are highlighted automatically.
+
+The product name and the *total quantity* currently available are shown at the top. The central area lists all stock batches of the selected product: *batch ID, quantity, date added* and *expiry date*.
+
+Available actions are ***Save*** (confirm changes), ***Discard*** (revert changes) and ***Delete*** (remove the selected item). A ***filter*** control shows batches by status (*active / inactive*).
+
+The right panel shows the ***details*** of the selected item (*quantity, expiry date, warning days, date added*). Fields are validated:
+
+- *Quantity* – required; an integer greater than zero,
+- *Expiry date* – optional; if set, must be at least 1 day in the future,
+- *Warning days* – optional; a non-negative integer,
+- *Date added* – date and time when the item was added,
+- *Active* – checkbox to activate or deactivate the item.
+
+Below the panel are the ***Add stock*** button, which creates a new item, and the ***Close*** button, which closes the screen without saving.
+
+If an expiry date exists and the current date is within the number of warning days, the item is automatically shown in a different colour, so the manager can spot critical stock.
+
+The view includes both active and inactive items, whether their status was changed, they expired or they were used up.
+
+### Manager statistics and reports
+
+#### Products
+
+This section shows key business figures in panels and charts.
+
+It has ***From*** and ***To*** date pickers and a ***Statistics*** button that loads data for the chosen period. Both dates are optional: an empty field means no limit on that end; with only *From* set, data from that date onward is shown; with only *To* set, data up to and including that date is shown.
+
+On clicking ***Statistics*** the app first validates the dates. If they are valid, the data is loaded and all panels, charts and the best-sellers list are updated. If the input is invalid (e.g. a future date or an invalid range), the fields are marked with an error and a warning dialog appears; the query does not run until the errors are fixed.
+
+Below the filter bar are these panels:
+
+- ***Orders*** – total number of orders, grouped by status: *Completed, Cancelled* and *Pending*.
+- ***Items*** – total number of items, split by category: *Food, Drink* and *Utensils*.
+- ***Revenue*** – total revenue in the selected period.
+
+Charts:
+- *Line chart* – weekly trend of items sold and number of orders,
+- *Bar chart* – revenue trend over the same period.
+
+The screen also has a list of ***best-selling products*** with thumbnails and names, sorted by the number of items sold.
+
+#### Stock
+
+The *Stock* section shows the state of products in the warehouse and all changes made.
+
+The user selects a product, sets a period with the *From* and *To* fields and generates the report with the ***Report*** button. The input is validated: a date cannot be in the future, the end date must be after the start date, and selecting a product is required for detailed reports. Invalid dates or no product selected block report generation, and an error indicator is shown next to the field.
+
+**Tabs:**
+
+- ***Stock*** – items whose expiry date is approaching, regardless of the selected product and period. The table has *stock ID, product ID, product name, quantity, expiry date* and *days until warning*,
+- ***Transactions*** – all stock changes for the selected product and period: *transaction ID, date and time, transaction type* (*receipt, sale, correction*), *quantity change, order number* and *user ID*,
+- ***Changes*** – all stock changes: *date, change type, previous and new value* and *user ID*,
+- ***Summary*** – overall view for the selected product and period: *quantity in stock, quantities added and sold* and *total number of changes*.
+
+Tables support sorting, and empty views tell the user there is no data for the current criteria.
 
 <p align="center">
   <img src="images/15_menadzer_izvjestaji.png" alt="izvjestaj" height="250" width="330"/>
   <img src="images/16_menadzer_izvjestaji.png" alt="izvjestaj" height="250" width="330"/>
 </p>
-<br clear="all"/>  
-<div style="page-break-before: always;"></div>
 
-# **Blagajnik**  
+---
 
-&nbsp;&nbsp;&nbsp;&nbsp;Uloga blagajnika je da osigura brzo i precizno upravljanje prodajom i naplatom u pekarskom ili slastičarskom objektu.  
+## Cashier
 
-***Glavne odgovornosti blagajnika su***:
--   kreiranje i naplata porudžbina,
--   praćenje i pregled porudžbina,
--   pregled finansijskih i operativnih izvještaja,
--   upravljanje ličnim postavkama i profilom.
+The cashier's main responsibilities:
+- creating and paying orders,
+- tracking and reviewing orders,
+- viewing financial and operational reports,
+- managing personal settings and profile.
 
-## **Prijava i pristup**  
-&nbsp;&nbsp;&nbsp;&nbsp;Po uspješnoj prijavi na sistem prikazuje se ***početni ekran za blagajnika (POS terminal)***.
+### Login and navigation
 
-&nbsp;&nbsp;&nbsp;&nbsp;U gornjem dijelu prikazana je *profilna slika* i *korisničko ime* blagajnika, što jasno pokazuje koji je korisnički nalog trenutno prijavljen.
+After login the ***cashier start screen (POS terminal)*** is shown. The top shows the *profile picture* and *username* of the logged-in cashier.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Na lijevoj strani ekrana nalazi se vertikalni ***navigacioni meni***, koji omogućava brz pristup ključnim modulima sistema. Svaka opcija može se brzo otvoriti pomoću tastaturnih prečica.
+A vertical ***navigation menu*** is on the left; each item has a keyboard shortcut:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Dostupne su sljedeće funkcionalnosti:
+- ***POS (Register)*** – screen for creating and paying orders (*Ctrl + P*),
+- ***Orders*** – all transactions and their details (*Ctrl + O*),
+- ***Reports*** – financial and operational data for the cashier's work (*Ctrl + R*),
+- ***Settings*** – personal account settings, including language and theme (*Ctrl + S*),
+- ***Profile*** – edit personal data: username, password, phone number, address and image (*Ctrl + M*),
+- ***Logout*** – log out of the application (*Escape*).
 
--   ***POS (Blagajna):*** - osnovni ekran za kreiranje i naplatu porudžbina (*Ctrl + P*),
--   ***Porudžbine:*** - pregled svih transakcija i detalja o njima (*Ctrl + O*),
--   ***Izveštaji:*** - finansijski i operativni podaci vezani za rad blagajnika (*Ctrl + R*),
--   ***Podešavanja:*** - lične postavke naloga, uključujući jezik i temu (*Ctrl + S*),
--   ***Profil:*** - uređivanje ličnih podataka korisnika poput imena i lozinke (*Ctrl + M*),
--   ***Odjava:*** - izlazak iz aplikacije i povratak na login ekran (*Escape*).
+The main area shows the ***content of the selected module***.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Glavni dio ekrana prikazuje ***sadržaj izabranog modula***. Sve funkcionalnosti odmah su dostupne, bez potrebe za dodatnom navigacijom.
+### POS screen
 
-## **POS ekran**  
+#### Search
 
-### **Pretraga**  
-&nbsp;&nbsp;&nbsp;&nbsp;U gornjem dijelu ekrana dostupni su alati za filtriranje i brzu pretragu proizvoda: padajući meni za ***izbor tipa proizvoda***: hrana, piće, pribor (prečica je *Ctrl + T*), tekstualno polje za ***pretragu po nazivu ili tipu*** proizvoda (fokus na dato polje se aktivira pritiskom na *F3*), te tri ***prekidača za filtriranje***: *Dostupno* (*Ctrl + A*), *Istaknuto* (*Ctrl + F*) i *Sniženo* (*Ctrl + D*). Kombinacijom navedenih opcija korisnik može jednostavno fokusirati prikaz na željene artikle.
+The top of the screen has product filtering and search tools: a drop-down for ***product type*** (food, drink, utensils; *Ctrl + T*), a text field to ***search by product name or type*** (focus with *F3*), and three ***filter toggles***: *Available* (*Ctrl + A*), *Featured* (*Ctrl + F*) and *On sale* (*Ctrl + D*). The options can be combined.
 
-### **Lista proizvoda**  
+#### Product list
 
-<img src="images/17_blagajnik_pos.png" alt="blagajnik pos" height="250" width="350" align="left" style="margin-right: 15px;"/>
+The centre of the screen shows products as scrollable cards. Each card has the *product name, description* (as a tooltip), *price* and a button to ***add to cart*** (***+***). On clicking "***+***" the app checks whether the product is available and in stock, and prevents adding the same product more than once. If the product is unavailable for sale, out of stock or already in the cart, a short notification is shown. When the add succeeds, the cart refreshes immediately.
 
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;U centralnom dijelu ekrana prikazani su proizvodi kao kartice koje se mogu slobodno skrolovati.
+#### Cart
 
-&nbsp;&nbsp;&nbsp;&nbsp;Svaka kartica sadrži: *naziv proizvoda, opis* (kao tooltip), *cijenu*, kao i dugme za ***dodavanje proizvoda u korpu*** (***+***). Pritiskom na „***+***" sistem provjerava da li je proizvod dostupan, da li ga ima na stanju, te sprečava dodavanje istog proizvoda više puta.  
-U slučaju da proizvod nije dostupan za prodaju, da nema dovoljno zaliha ili je već u korpi, prikazuje se kratko obavještenje o tome.
+The cart lists the selected products with *image*, *name* and *price*. *Quantity* is changed with *plus/minus* buttons, and there is a button to *remove a product*. Quantity changes are immediately reflected in the item price and the cart total. Removing a product from the cart also updates the total automatically. Trying to raise the quantity above the available stock shows a short popup saying the stock limit was reached.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ukoliko je dodavanje uspješno, korpa se odmah osvježava i prikazuje se dodati proizvod.
+#### Total and payment options
 
-<br clear="left"/>  
+<p align="center">
+  <img src="images/18_blagajnik_pos.png" alt="blagajnik pos" height="250" width="350"/>
+</p>
 
-### **Korpa**  
-&nbsp;&nbsp;&nbsp;&nbsp;U korpi se prikazuju svi odabrani proizvodi sa *slikom*, *nazivom* i *cijenom*. *Količina* se može mijenjati pomoću *plus/minus* dugmadi, a postoji i dugme za *uklanjanje proizvoda* iz korpe.  
-&nbsp;&nbsp;&nbsp;&nbsp;Promjene količine se odmah odražavaju na cijenu proizvoda i ukupan iznos korpe.  
-&nbsp;&nbsp;&nbsp;&nbsp;Pokušaj povećanja količine iznad raspoloživog stanja prikazuje kratkotrajni vizualni indikator (popup) koji signalizira da je dostignut limit zaliha. Uklanjanjem proizvoda iz korpe ukupan iznos se automatski osvježava.  
-&nbsp;&nbsp;&nbsp;&nbsp;Za svaku od opcija plaćanja traži se potvrda kroz dijalog.  
-&nbsp;&nbsp;&nbsp;&nbsp;Ako je operacija uspješna, korpa se prazni i prikazuje se odgovarajuća informativna poruka o uspjehu. Ako je korpa prazna pri pokušaju plaćanja, korisnik dobija odgovarajuće obavještenje.
+The ***cart total*** is shown below the product list, with the currency. The cashier has three payment options:
 
-### **Ukupan iznos i opcije plaćanja**  
+- ***Pay Later*** – payment is deferred (*Ctrl + L*),
+- ***Pay Cash*** – payment in cash (*Ctrl + G*),
+- ***Pay Card*** – opens a dialog for the card number; after confirmation the card payment is recorded (*Ctrl + N*).
 
-<img src="images/18_blagajnik_pos.png" alt="blagajnik pos" height="250" width="350" align="right" style="margin-left: 15px;"/>
+Whichever option is chosen, every transaction creates an order and reduces product quantities in stock; with Pay Cash and Pay Card the payment is recorded too, while with Pay Later it is deferred.
 
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Ispod liste dodatih proizvoda prikazuje se ***ukupni iznos korpe*** uz oznaku valute.  
+The operation has to be confirmed in a dialog before it runs. If it succeeds, the cart is cleared and a success message is shown. If the cart is empty when payment is attempted, the user gets a notification.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Blagajniku su dostupne tri opcije plaćanja:
+### Orders
 
-- ***Kasnije*** (*Pay Later*) - plaćanje se odlaže (*Ctrl + L*),
-- ***Keš*** (*Pay Cash*) - plaćanje se vrši gotovinom (*Ctrl + G*),
-- ***Kartica*** (*Pay Card*) - otvara se dijalog za unos broja kartice; nakon potvrde evidentira se plaćanje karticom (*Ctrl + N*).
+<p align="center">
+  <img src="images/20_blagajnik_porudzbine.png" alt="blagajnik porudžbine" height="250" width="350"/>
+</p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Bez obzira na odabranu opciju, svaka transakcija kreira porudžbinu, evidentira plaćanje i smanjuje količine proizvoda u zalihama.  
-<br clear="right"/>
-&nbsp;&nbsp;&nbsp;&nbsp;Radi dodatne sigurnosti, potrebno je potvrditi operaciju kroz dijalog.  
-&nbsp;&nbsp;&nbsp;&nbsp;Ako je operacija bila uspješna, korpa se prazni i prikazuje se adekvatna poruka. Ukoliko je korpa bila prazna prilikom pokušaja plaćanja, korisnik dobija odgovarajuće obavještenje.  
-<div style="page-break-before: always;"></div>
+In the centre of the screen a drop-down ***filters orders*** by status (*All, Completed, Cancelled, Pending*); the shortcut is *Ctrl + T*.
 
-## **Porudžbine**  
+Orders the cashier handled in the last 24 hours are shown in a table with the columns *ID, Date, Total price* and *Status*. The table supports column sorting. If there are no orders, the message "*No data*" is shown instead of the table.
 
-<img src="images/20_blagajnik_porudzbine.png" alt="blagajnik porudžbine" height="250" width="350" align="right" style="margin-left: 15px;"/>
+A side panel on the right shows ***order details***: selecting a row loads the order's items (*product name, quantity, unit price* and *item total*) and the order total.
 
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;U centralnom dijelu ekrana nalazi se padajući meni za ***filtriranje porudžbina*** na osnovu tipa (*Sve, Kompletirane, Otkazane, Na čekanju*). Za pristup meniju moguće je koristiti prečicu *Ctrl + T*.  
+For the selected order the following actions are available:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Sve porudžbine koje je blagajnik realizovao u posljednja 24 časa su prikazane u tabeli sa kolonama: *ID, Datum, Ukupna cijena* i *Status*. Tabela podržava sortiranje kolona. U slučaju da nema porudžbina umjesto tabele se prikazuje poruka: "*Nema podataka*".  
+- ***Cancel*** – cancels an existing order. A confirmation dialog is shown, after which the stock for all items in the order is restored. If the order was pending, its status becomes "*Cancelled*"; if it was already completed, the status becomes "*Refunded*" and a refund is made (the cash balance is reduced). An already cancelled order cannot be cancelled again. Shortcut: *Ctrl + L*.
+- ***Pay Cash*** – cash payment applies to orders with the status "*Pending*". A cancelled or already paid order cannot be paid; the app blocks the attempt and shows a dialog. Shortcut: *Ctrl + G*.
+- ***Pay Card*** – card payment also applies to "*Pending*" orders. A dialog asks for the card number (required and validated); after confirmation the payment is recorded and the order is updated. As with cash, a cancelled or already paid order cannot be paid. Shortcut: *Ctrl + N*.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Na desnoj strani ekrana se nalazi bočni panel za ***prikaz detalja*** odabrane porudžbine. Odabirom reda u tabeli desni panel učitava i prikazuje stavke te porudžbine što uključuje: *naziv proizvoda, količinu, cijenu po jedinici* i *ukupnu cijenu stavke*. Ispod popisa stavki prikazan je ukupni iznos izabrane porudžbine.
-<br clear="left"/>  
+If cancelling or paying is attempted with no order selected, a dialog reports an invalid operation. Each successful operation shows an informational message.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Za odabranu porudžbinu su omogućene sledeće funkcionalnosti:
+### Cashier statistics and reports
 
-- ***Otkaži*** (*Cancel*) - dozvoljeno je da se otkažu već kreiran porudžbine; prikazuje se dijalog za potvrdu poslije čega se vraćaju zalihe artikala za sve stavke porudžbine; u slučaju da je porudžbina bila na čekanju, njen status postaje "*Otkazana*", a u slučaju da je već bila kompletirana status postaje "*Refundirana*" i izvršava se povrat sredstava (stanje novca se umanjuje); nije dozvoljeno ponovo otkazati već otkazanu porudžbinu; omogućena je prečica: *Ctrl + L*.
+The ***Reports*** screen shows key metrics in panels and charts. All views refer to the logged-in cashier (by *user ID*).
 
-- ***Gotovina*** (*Pay Cash*) - plaćanje gotovinom primjenjuje se na porudžbine koje su u statusu "*Na čekanju*"; ne može se platiti otkazana ili već plaćena porudžbina; aplikacija sprječava takav pokušaj i prikazuje odgovarajući dijalog; omogućena je prečica: *Ctrl + G*.
+- Top: *total number of orders*, *total items sold* and *total revenue* from the logged-in user's work.
+- Bottom left: daily statistics – *today's orders* by status (*Completed, Cancelled, Pending*), *daily revenue* and *items sold* by category (*food, drink, utensils*). If there is no data, the message "*No orders*" is shown instead of a chart.
+- A *line chart* shows the *weekly number of items* and *orders* for the cashier's work, and a *bar chart* shows the *revenue* trend over the same period.
+- A list of *best-selling products*.
 
-- ***Kartica*** (*Pay Card*) - plaćanje karticom takođe se primjenjuje na porudžbine koje su u statusu "*Na čekanju*"; otvara se dijalog za unos broja kartice; unos je obavezan i podliježe validaciji; nakon potvrde evidentira se plaćanje i porudžbina se ažurira;. isto kao kod gotovine, ne može se platiti otkazana ili već plaćena porudžbina; omogućena je prečica: *Ctrl + N*.
-
-&nbsp;&nbsp;&nbsp;&nbsp;U slučaju da se pokuša izvršiti otkazivanje ili plaćanje bez odabrane porudžbine, pojavljuje se dijalog o nedozvoljenoj operaciji. Za svaku uspješno izvršenu operaciju prikazuju se adekvatne informativne poruke.
-
-## **Statistika i izvještaji kod blagajnika**  
-&nbsp;&nbsp;&nbsp;&nbsp;Ekran ***Izvještaji*** omogućava blagajniku brz pregled ključnih metrika kroz intuitivne panele i grafičke prikaze.
-Svi prikazi odnose se na konkretnog blagajnika (prema *korisničkom ID-u*) za tekući period.
-
-&nbsp;&nbsp;&nbsp;&nbsp;U gornjem dijelu ekrana prikazani su podaci o *ukupnom broju porudžbina*, *ukupno ostvarenim stavkama* i *ukupnom prihodu* generisanom tokom rada prijavljenog korisnika.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Donji lijevi dio sadrži dnevne statistike: *broj današnjih porudžbina* grupisan po statusima (*Kompletirane, Otkazane, Na čekanju*), ostvareni *dnevni prihod* i *broj prodatih artikala* raspoređenih po kategorijama (*hrana, piće, pribor*). U slučaju nedostatka podataka, umjesto grafikona prikazuje se poruka *"Nema porudžbina"*.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Linijski grafikon prikazuje *sedmični broj stavki* i *porudžbina* vezanih za rad blagajnika, dok stubičasti grafikon prikazuje kretanje *prihoda* u istom periodu.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Na ekranu se nalazi i lista *najprodavanijih proizvoda*.
 <p align="center">
   <img src="images/21_blagajnik_izvjestaji.png" alt="izvjestaj" height="280" width="380"/>
 </p>
-<br clear="all"/>  
-<div style="page-break-before: always;"></div>
 
-# **Zajedničke funkcionalnosti**  
+---
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ovo poglavlje opisuje funkcije koje su dostupne i menadžeru i blagajniku:
-***postavke jezika*** i ***teme***, te ***uređivanje korisničkog profila***.
+## Shared features
 
-## **Postavke (Jezik i Tema)**  
-&nbsp;&nbsp;&nbsp;&nbsp;Aplikacija *PastryShop* omogućava korisnicima potpunu personalizaciju izgleda i jezika korisničkog interfejsa. Na taj način se osigurava ugodno i intuitivno iskustvo tokom rada.
+These are available to both the manager and the cashier: ***language*** and ***theme settings***, and ***profile editing***.
 
-**Dostupne opcije:**
+### Settings (language and theme)
 
--  ***Teme interfejsa*** - korisnik može birati između ***svijetle***, ***tamne*** i ***plave*** teme.
--  ***Jezici*** - trenutno su podržani ***srpski*** i ***engleski*** jezik.
+The user can set the theme and language of the interface:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Padajući meniji za izbor jezika i teme sadrže odgovarajuće ikonice uz svaku opciju, dok su nazivi prilagođeni trenutno aktivnom jeziku aplikacije, čime se postiže dodatna jasnoća.
+- ***Themes*** – ***light***, ***dark*** and ***blue***,
+- ***Languages*** – ***Serbian*** and ***English*** are currently supported.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Klikom na dugme ***Sačuvaj*** aplikacija upoređuje odabrane postavke jezika i teme sa prethodnim vrijednostima i odmah primjenjuje eventualne promjene. Omogućeno je promijeniti samo temu, samo jezik, ili oboje istovremeno.
+The language and theme drop-downs have an icon next to each option, and the labels follow the currently active language.
+
+Clicking ***Save*** compares the selected language and theme with the previous values and applies any changes immediately. You can change only the theme, only the language, or both.
+
 <p align="center">
   <img src="images/22_zajednicke_teme.png" alt="teme" height="250" width="330"/>
   <img src="images/29_zajednicke_jezik.png" alt="jezik" height="250" width="330"/>
 </p>
-<br clear="all"/>  
 
-&nbsp;&nbsp;&nbsp;&nbsp;Korisnik dobija informativnu poruku o rezultatu („*Tema i jezik promijenjeni*", „*Tema promijenjena*", „*Jezik promijenjen*" ili „*Nema promjena*").
+The user gets a message with the result ("*Theme and language changed*", "*Theme changed*", "*Language changed*" or "*No changes*"). The chosen settings are stored for that user, so the previously selected options are available at every later login.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Odabrane postavke (tema i jezik) se automatski čuvaju za datog korisnika pa su pri svakoj njegovoj narednoj prijavi dostupne prethodno odabrane opcije.  
-<div style="page-break-before: always;"></div>  
-
-&nbsp;&nbsp;&nbsp;&nbsp;*Primjeri različitih tema*:  
+*Examples of different themes:*
 
 <p align="center">
   <img src="images/23_zajednicke_teme.png" alt="teme" height="250" width="330"/>
   <img src="images/26_zajednicke_teme.png" alt="teme" height="250" width="330"/>
 </p>
-<br clear="all"/>  
 <p align="center">
   <img src="images/24_zajednicke_teme.png" alt="teme" height="250" width="330"/>
   <img src="images/27_zajednicke_teme.png" alt="teme" height="250" width="330"/>
 </p>
-<br clear="all"/>  
 <p align="center">
   <img src="images/25_zajednicke_teme.png" alt="teme" height="250" width="330"/>
   <img src="images/28_zajednicke_teme.png" alt="teme" height="250" width="330"/>
 </p>
-<br clear="all"/>  
-<div style="page-break-before: always;"></div>  
 
-*Primjer internacionalizacije*:
+*Example of changing the language:*
+
 <p align="center">
   <img src="images/30_zajednicke_jezik.png" alt="jezik" height="250" width="330"/>
   <img src="images/31_zajednicke_jezik.png" alt="jezik" height="250" width="330"/>
 </p>
-<br clear="all"/>
 
-##  **Profil korisnika**  
-&nbsp;&nbsp;&nbsp;&nbsp;Prilikom otvaranja stranice ***Profil korisnika***, trenutni podaci su već učitani, što omogućava pregled i eventualnu izmjenu postojećih informacija.
+### User profile
 
-<img src="images/32_zajednicke_profil.png" alt="profil korisnika" height="250" width="350" align="right" style="margin-left: 15px;"/>
+When the ***User profile*** page opens, the current data is already loaded, so it can be reviewed and edited.
 
-<!--  -->
-&nbsp;&nbsp;&nbsp;&nbsp;Korisnik može promijeniti sljedeće podatke:
-
-- ***Korisničko ime*** - obavezno polje; dozvoljeni znakovi su slova i cifre, postoji ograničenje dužine, a ime mora biti jedinstveno.+,
-- ***Lozinka*** - opciono; ako se unese, primjenjuju se ista pravila kao za korisničko ime. Lozinka je maskirana radi sigurnosti,
-- ***Broj telefona*** - obavezno polje; uneseni broj mora odgovarati formatu telefonskog broja,
-- ***Adresa*** - polje bez dodatnih ograničenja,
-- ***Izaberite sliku*** - otvara dijalog za odabir slike; podržani formati su: *jpg, jpeg* i *png*.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Dostupna su sledeća dugmad:
-
-- ***Sačuvaj*** - vrši validaciju unesenih vrijednosti i u slučaju da su podaci ispravni, čuva izmjene u profilu korisnika (*Ctrl + S*),
-- ***Poništi*** - vraća prethodno aktivne vrijednosti, poništavajući sve nedavne izmjene (*Ctrl + R*).
-<br clear="right"/>
-
-## **Responzivni dizajn**  
-&nbsp;&nbsp;&nbsp;&nbsp;Pastry Shop aplikacija je dizajnirana sa fokusom na responzivni dizajn, osiguravajući ugodno korisničko iskustvo na desktop i laptop uređajima. Interfejs se automatski prilagođava veličini i rezoluciji ekrana, tako da sadržaj uvek izgleda i funkcioniše besprekorno.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Na većim ekranima sadržaj koji uključuje liste proizvoda ili navigacione ikonice organizovan je u više kolona za maksimalnu iskorišćenost prostora, dok se na manjim ekranima automatski prebacuje na manji broj kolona. Po potrebi se pojedine slike mogu sakriti na manjim širinama ekrana kako bi se uštedio prostor i sačuvao pregledan raspored.  
-
-&nbsp;&nbsp;&nbsp;&nbsp;*Primjer primjene responzivnosti*:  
 <p align="center">
-  <img src="images/33_zajednicke_responzivnost.png" alt="responzivnost" height="250" width="330"/> 
-  <img src="images/34_zajednicke_responzivnost.png" alt="responzivnost" height="250" width="250"/>  
+  <img src="images/32_zajednicke_profil.png" alt="profil korisnika" height="250" width="350"/>
+</p>
+
+The user can change:
+
+- ***Username*** – required; letters and digits only, with a length limit, and must be unique,
+- ***Password*** – optional; if entered, the same rules as for the username apply. The field is masked,
+- ***Phone number*** – required; must match a phone number format,
+- ***Address*** – no additional constraints,
+- ***Choose image*** – opens a picker; supported formats are *jpg, jpeg* and *png*.
+
+Buttons:
+
+- ***Save*** – validates the input and, if valid, saves the changes to the profile (*Ctrl + S*),
+- ***Reset*** – restores the previously active values, discarding recent edits (*Ctrl + R*).
+
+### Adaptive layout
+
+The interface layout adapts to the screen size on desktop and laptop computers. On larger screens, product lists and navigation icons are arranged in several columns, and on smaller screens the layout switches to fewer columns automatically. At smaller widths some images may be hidden to save space.
+
+*Example of the layout adapting:*
+
+<p align="center">
+  <img src="images/33_zajednicke_responzivnost.png" alt="responzivnost" height="250" width="330"/>
+  <img src="images/34_zajednicke_responzivnost.png" alt="responzivnost" height="250" width="250"/>
 </p>
 <p align="center">
-  <img src="images/35_zajednicke_responzivnost.png" alt="responzivnost"  height="250" width="330"/> 
-  <img src="images/36_zajednicke_responzivnost.png" alt="responzivnost"  height="250" width="250"/>
+  <img src="images/35_zajednicke_responzivnost.png" alt="responzivnost" height="250" width="330"/>
+  <img src="images/36_zajednicke_responzivnost.png" alt="responzivnost" height="250" width="250"/>
 </p>
